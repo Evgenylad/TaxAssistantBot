@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "save_the_show-executor",
+    "name": "save_the_show",
+    "region": "us-east-1"
+  },
+  "api": {
+    "id": "ahare7rvya",
+    "module": "bot"
+  }
+}

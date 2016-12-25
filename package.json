@@ -1,0 +1,15 @@
+{
+  "name": "save_the_show",
+  "version": "0.0.1",
+  "description": "Save The Show - it's a test bot ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Evgeny Ladyzhenskiy",
+  "license": "ISC",
+  "dependencies": {
+    "claudia-bot-builder": "^2.9.0",
+    "huh": "^2.0.1"
+  }
+}
