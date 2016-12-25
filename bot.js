@@ -4,27 +4,27 @@ const telegramTemplate = require('claudia-bot-builder').telegramTemplate;
 module.exports = botBuilder(function (message, originalApiRequest) {
   if (message.text === '/start')
     return [
-      'Добрый день! Я помогу вам выбрать музей и купить электронный билет. Например, прямо сейчас есть отличное предложение:',
-      new telegramTemplate.Text(`У вас ООО или ИП?`)
-        .addReplyKeyboard([['ООО'], ['ИП']])
+      'Hi! I am your Tax Assistant and I will help you to fullfil your tax declaration.',
+      new telegramTemplate.Text(`What type of business do you owe: LLC or self-employed?`)
+        .addReplyKeyboard([['LLC'], ['ИП']])
         .get()
     ];
 
-  if (message.text === 'ООО')
+  if (message.text === 'LLC')
     return new Promise(function(resolve, reject) {
-      resolve('Введите БИК вашего банка')
+      resolve('Please provide us BIC of your bank')
     });
 
-  if (message.text === 'ИП') {
-      return 'Введите БИК вашего банка'
+  if (message.text === 'self-employed') {
+      return 'Please provide us BIC of your bank'
     }
 
   if (message.text.length === 7) {
-     return new telegramTemplate.Text('Полные реквизиты вашего банка: <Реквизиты>. Нажмите кнопку ВЕРНО, если все правильно или ОШИБКа, если данные не верны')
-      .addReplyKeyboard([['ВЕРНО'], ['ОШИБКА']])
+     return new telegramTemplate.Text('Please check you bank details: <Bank details>. Press CORRECT, if everything ok or ERROR, if the details are NOT correct')
+      .addReplyKeyboard([['CORRECT'], ['ERROR']])
       .get()
   } else {
-     return 'БИК введен не корректно'
+     return 'Error: Please check the BIC.'
   }
 
 }, { platforms: ['telegram'] });
